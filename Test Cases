@@ -1,0 +1,6 @@
+Test cases:
+1. Compare 1st value of 1st list with last value of 2nd list.
+2. Check size of both arrays.
+3. Compare last value of 1st list with 1st value of 2nd list.
+4. Check middle index of both lists if size of list is not odd then add two middle arrays values divide it by 2 then compare.
+5. If needed put values of both lists in array and compare all values after reversing any one arrray.
