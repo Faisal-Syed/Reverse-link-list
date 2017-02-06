@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+struct node
+{
+    int data;
+    struct node* next;
+};
+  
+void push(struct node** head1, int data1)
+{
+    struct node* new_node = (struct node*) malloc(sizeof(struct node));
+    new_node->data  = data1;
+    new_node->next = (*head1);    
+    (*head1) = new_node;
+}
+ 
+void printList(struct node *head)
+{
+    struct node *temp = head;
+    while(temp != NULL)
+    {
+        printf("%d  ", temp->data);    
+        temp = temp->next;  
+    }
+}
+
+static void reverse(struct node** head1)
+{
+    struct node* prev   = NULL;
+    struct node* current = *head1;
+    struct node* next;
+    while (current != NULL)
+    {
+        next  = current->next;  
+        current->next = prev;   
+        prev = current;
+        current = next;
+    }
+    *head1 = prev;
+}
+
+int main()
+{
+    struct node* head = NULL;
+   
+     push(&head, 1);
+     push(&head, 2);
+     push(&head, 3); 
+     push(&head, 4);
+     push(&head, 5);      
+     
+     cout<<"Link list before\n";
+     printList(head);    
+     reverse(&head);                      
+     cout<<"\nReversed Linked list"<<endl;
+     printList(head);    
+     getchar();
+}    
